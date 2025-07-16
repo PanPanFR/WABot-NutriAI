@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriHealth - Rekomendasi Nutrisi Makanan & Tanya AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome untuk ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥗</text></svg>" />
+</head>
+<body>
+  <header>
+    <div class="logo">NutriHealth <span style="font-size: 0.8em;">🥗</span></div>
+    <button id="toggleDark">🌙 Mode Gelap</button>
+  </header>
+
+  <div class="main-grid">
+    <div class="container">
+      <h1><i class="fas fa-apple-alt"></i> Rekomendasi Nutrisi Makanan</h1>
+      <form id="recommendForm">
+        <label>Gender:
+          <select name="gender" required>
+            <option value="">Pilih</option>
+            <option value="male">Laki-laki</option>
+            <option value="female">Perempuan</option>
+          </select>
+        </label>
+
+        <div class="inline-fields">
+          <label>Berat Badan (kg):
+            <input type="number" name="weight" min="30" max="200" required placeholder="Contoh: 70" />
+          </label>
+
+          <label>Tinggi Badan (cm):
+            <input type="number" name="height" min="100" max="250" required placeholder="Contoh: 170" />
+          </label>
+        </div>
+
+        <label>Usia:
+          <input type="number" name="age" min="12" max="100" required placeholder="Contoh: 30" />
+        </label>
+
+        <label>Tingkat Aktivitas:
+          <select name="activity" required>
+            <option value="">Pilih</option>
+            <option value="sedentary">Sedentary (Jarang bergerak)</option>
+            <option value="lightly_active">Lightly Active (Aktivitas ringan 1-3x seminggu)</option>
+            <option value="moderately_active">Moderately Active (Olahraga 3-5x seminggu)</option>
+            <option value="very_active">Very Active (Olahraga berat 6-7x seminggu)</option>
+            <option value="extra_active">Extra Active (Atlet/fisik sangat aktif)</option>
+          </select>
+        </label>
+
+        <label>Tujuan:
+          <select name="objective" required>
+            <option value="">Pilih</option>
+            <option value="weight_loss">Menurunkan Berat Badan</option>
+            <option value="muscle_gain">Menambah Massa Otot</option>
+            <option value="health_maintenance">Menjaga Kesehatan</option>
+          </select>
+        </label>
+
+        <button type="submit"><i class="fas fa-calculator"></i> Hitung & Dapatkan Rekomendasi</button>
+      </form>
+
+      <div id="result" class="output-box">
+        <i class="far fa-lightbulb"></i> Isi formulir di atas untuk mendapatkan rekomendasi nutrisi yang disesuaikan dengan kebutuhan Anda.
+      </div>
+    </div>
+
+    <div class="container">
+      <h1><i class="fas fa-robot"></i> Tanya AI Nutrisi</h1>
+      <form id="chatForm">
+        <div class="input-wrapper">
+          <input type="text" id="userQuestion" name="userQuestion" required placeholder="Misal: Apa makanan yang bagus untuk diet?" />
+        </div>
+        <button type="submit" class="submit-button"><i class="fas fa-paper-plane"></i> Tanya AI</button>
+        <small style="color: #888; margin-top: 5px;">Tanyakan seputar nutrisi, diet, makanan sehat, atau kesehatan</small>
+      </form>
+      
+      <div id="chatResponse" class="output-box chat-area">
+        <span id="typingIndicator" style="display:none;"></span>
+        <div id="chatText">
+          <i class="fas fa-comment-dots"></i> Halo! Saya adalah AI asisten nutrisi. Apa yang ingin Anda ketahui tentang nutrisi atau pola makan sehat?
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="text-align: center; margin-top: 40px; padding: 20px; color: #888; font-size: 0.9rem;">
+    <p>NutriHealth © 2025 | Solusi Nutrisi Digital</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
