@@ -5,7 +5,7 @@ const axios = require('axios');
 
 const wwebVersion = '2.3000.1024710243-alpha';
 const apiUrl = 'https://ml-resep-service-1036840411639.asia-southeast2.run.app/getRecomend';
-const openRouterKey = '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'; // Ganti dengan API key OpenRouter Anda
+const openRouterKey = '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'; // Ganti dengan API key OpenRouter Anda
 
 let userData = {};
 let userStatus = {};
