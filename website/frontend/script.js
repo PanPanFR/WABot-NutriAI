@@ -200,7 +200,7 @@ chatForm.addEventListener('submit', async (e) => {
   typingIndicator.innerHTML = '<div class="loading-spinner"></div> AI sedang mengetik...';
   
   try {
-    const res = await fetch('http://localhost:9090/askAI', {
+    const res = await fetch('https://backend-api-service-v2-1036840411639.asia-southeast2.run.app/askai', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ question })

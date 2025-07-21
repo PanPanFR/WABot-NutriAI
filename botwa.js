@@ -4,8 +4,8 @@ const qrcode = require('qrcode-terminal');
 const axios = require('axios');
 
 const wwebVersion = '2.3000.1024710243-alpha';
-const apiUrl = 'http://127.0.0.1:9090/getRecomend';
-const openRouterKey = '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'; // Ganti dengan API key OpenRouter Anda
+const apiUrl = 'https://ml-resep-service-1036840411639.asia-southeast2.run.app/getRecomend';
+const openRouterKey = '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'; // Ganti dengan API key OpenRouter Anda
 
 let userData = {};
 let userStatus = {};

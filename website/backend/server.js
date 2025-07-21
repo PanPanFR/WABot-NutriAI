@@ -1,18 +1,22 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import fetch from "node-fetch"; // pastikan fetch tersedia, install jika perlu: npm i node-fetch
+import fetch from "node-fetch";
 
 const app = express();
-
 app.use(cors());
 app.use(bodyParser.json());
 
-const OPENROUTER_API_KEY = "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"; // ganti sesuai kamu
+// 🔒 HARD-CODED API KEY (kamu bisa ganti langsung di sini)
+const OPENROUTER_API_KEY = "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";
 
-// Endpoint untuk tanya AI
-app.post("/askAI", async (req, res) => {
+// Endpoint utama untuk tanya AI
+app.post("/askai", async (req, res) => {
   const { question } = req.body;
+
+  if (!OPENROUTER_API_KEY) {
+    return res.status(500).json({ reply: "API key belum diatur." });
+  }
 
   try {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -23,12 +27,7 @@ app.post("/askAI", async (req, res) => {
       },
       body: JSON.stringify({
         model: "deepseek/deepseek-r1:free",
-        messages: [
-          {
-            role: "user",
-            content: question,
-          },
-        ],
+        messages: [{ role: "user", content: question }],
       }),
     });
 
@@ -41,34 +40,13 @@ app.post("/askAI", async (req, res) => {
     const reply = data.choices?.[0]?.message?.content || "Maaf, tidak bisa menjawab.";
     res.json({ reply });
   } catch (error) {
-    console.error("Error dari OpenRouter:", error);
+    console.error("❌ Error saat menghubungi OpenRouter:", error.message);
     res.status(500).json({ reply: "Terjadi kesalahan saat menghubungi AI." });
   }
 });
 
-// ✅ Endpoint untuk cek validitas token OpenRouter
-app.get("/check-token", async (req, res) => {
-  try {
-    const response = await fetch("https://openrouter.ai/api/v1/auth/key", {
-      method: "GET",
-      headers: {
-        "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
-      },
-    });
-
-    if (!response.ok) {
-      const errText = await response.text();
-      throw new Error(`Token check failed: ${response.status} ${errText}`);
-    }
-
-    const data = await response.json();
-    res.json({ valid: true, data });
-  } catch (error) {
-    console.error("Token check error:", error);
-    res.status(401).json({ valid: false, message: "Token tidak valid atau terjadi kesalahan." });
-  }
-});
-
-app.listen(9090, () => {
-  console.log("Server AI berjalan di http://localhost:9090");
+// Port default
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`🚀 Server AI aktif di port ${PORT}`);
 });
