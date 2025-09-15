@@ -59,7 +59,7 @@ Tanyakan apa saja seputar nutrisi dan kesehatan. Bot akan otomatis keluar dari m
    WWEB_VERSION=2.3000.1024710243-alpha
 
    # API Configuration
-   API_RECOMEND_URL=https://ml-resep-service-1036840411639.asia-southeast2.run.app/getRecomend
+   API_RECOMEND_URL=your_api_recomend_url_here
    OPENROUTER_API_KEY=your_openrouter_api_key_here
 
    # AI Model Configuration
