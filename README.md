@@ -2,6 +2,8 @@
 
 WABot-NutriAI adalah chatbot WhatsApp yang cerdas yang membantu pengguna dengan rekomendasi nutrisi personal dan obrolan AI seputar kesehatan dan nutrisi.
 
+> ⚠️ **Catatan Penting**: Fitur rekomendasi makanan memerlukan model Machine Learning terpisah yang tidak disertakan dalam repository ini. Anda perlu mengembangkan atau menyediakan API model ML Anda sendiri untuk mengaktifkan fitur ini.
+
 ## Fitur Utama
 
 - 🍽️ **Rekomendasi Makanan Personal**: Berdasarkan profil pengguna (usia, berat badan, tinggi badan, aktivitas, tujuan)
@@ -101,3 +103,5 @@ MIT License - lihat file [LICENSE](LICENSE) untuk detail lebih lanjut.
 ## Disclaimer
 
 Bot ini dibuat untuk tujuan edukasi dan bantuan nutrisi personal. Untuk saran medis profesional, selalu konsultasikan dengan dokter atau ahli gizi yang memenuhi syarat.
+
+Fitur rekomendasi makanan bergantung pada model Machine Learning eksternal yang tidak disertakan dalam repository ini. Pengguna perlu menyediakan API model ML mereka sendiri untuk mengaktifkan fitur ini.
