@@ -1,6 +1,6 @@
-# WABot-NutriAI - WhatsApp Nutrition Assistant & AI Chatbot
+# WABot-NutriHealth - WhatsApp Nutrition Assistant & AI Chatbot
 
-WABot-NutriAI is an intelligent WhatsApp chatbot that helps users with personalized nutrition recommendations and AI-powered health chat.
+WABot-NutriHealth is an intelligent WhatsApp chatbot that helps users with personalized nutrition recommendations and AI-powered health chat.
 
 > ⚠️ **Important Note**: The food recommendation feature requires a separate Machine Learning model which is not included in this repository. You need to develop or provide your own ML model API to enable this feature.
 
