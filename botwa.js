@@ -1,11 +1,13 @@
-// WhatsApp Chatbot Nutrition Assistant & AI Chat via OpenRouter
+require('dotenv').config();
 const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const axios = require('axios');
 
-const wwebVersion = '2.3000.1024710243-alpha';
-const apiUrl = 'https://ml-resep-service-1036840411639.asia-southeast2.run.app/getRecomend';
-const openRouterKey = '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'; // Ganti dengan API key OpenRouter Anda
+const wwebVersion = process.env.WWEB_VERSION;
+const apiUrl = process.env.API_RECOMEND_URL;
+const openRouterKey = process.env.OPENROUTER_API_KEY;
+const aiModel = process.env.AI_MODEL;
+const inactivityTimeout = parseInt(process.env.INACTIVITY_TIMEOUT_MINUTES) * 60 * 1000;
 
 let userData = {};
 let userStatus = {};
@@ -24,8 +26,8 @@ const setAutoExitTimeout = (chatId) => {
     chatTimeouts[chatId] = setTimeout(() => {
         aiMode[chatId] = false;
         chatTimeouts[chatId] = null;
-        client.sendMessage(chatId, '⌛ Anda tidak aktif selama 3 menit. Mode chat AI dihentikan otomatis.');
-    }, 3 * 60 * 1000); // 3 menit
+        client.sendMessage(chatId, `⌛ Anda tidak aktif selama ${process.env.INACTIVITY_TIMEOUT_MINUTES} menit. Mode chat AI dihentikan otomatis.`);
+    }, inactivityTimeout);
 };
 
 const isTopikSehat = (text) => {
@@ -85,7 +87,7 @@ Ketik salah satu dari pilihan berikut untuk memulai:
             const aiReply = await axios.post(
                 'https://openrouter.ai/api/v1/chat/completions',
                 {
-                    model: 'deepseek/deepseek-r1:free',
+                    model: aiModel,
                     messages: [
                         { role: 'system', content: 'You are a helpful AI assistant for health and nutrition.' },
                         { role: 'user', content: msg.body }
