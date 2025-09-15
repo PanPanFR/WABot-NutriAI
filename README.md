@@ -1,61 +1,61 @@
 # WABot-NutriAI - WhatsApp Nutrition Assistant & AI Chatbot
 
-WABot-NutriAI adalah chatbot WhatsApp yang cerdas yang membantu pengguna dengan rekomendasi nutrisi personal dan obrolan AI seputar kesehatan dan nutrisi.
+WABot-NutriAI is an intelligent WhatsApp chatbot that helps users with personalized nutrition recommendations and AI-powered health chat.
 
-> ⚠️ **Catatan Penting**: Fitur rekomendasi makanan memerlukan model Machine Learning terpisah yang tidak disertakan dalam repository ini. Anda perlu mengembangkan atau menyediakan API model ML Anda sendiri untuk mengaktifkan fitur ini.
+> ⚠️ **Important Note**: The food recommendation feature requires a separate Machine Learning model which is not included in this repository. You need to develop or provide your own ML model API to enable this feature.
 
-## Fitur Utama
+## Key Features
 
-- 🍽️ **Rekomendasi Makanan Personal**: Berdasarkan profil pengguna (usia, berat badan, tinggi badan, aktivitas, tujuan)
-- 💬 **Chat AI Nutrisi**: Obrolan interaktif dengan AI tentang kesehatan, nutrisi, diet, dan olahraga
-- 📊 **Kalkulasi Nutrisi**: Menghitung BMI, BMR, dan kebutuhan kalori harian
-- 🔐 **Aman & Privat**: Semua data disimpan sementara dan tidak dipersistenkan
+- 🍽️ **Personalized Meal Recommendations**: Based on user profile (age, weight, height, activity, goals)
+- 💬 **Nutrition AI Chat**: Interactive chat with AI about health, nutrition, diet, and exercise
+- 📊 **Nutrition Calculations**: Calculates BMI, BMR, and daily calorie needs
+- 🔐 **Secure & Private**: All data is stored temporarily and not persisted
 
-## Cara Kerja
+## How It Works
 
-1. Kirim pesan `!halo` untuk memulai
-2. Pilih antara:
-   - `!recomend` untuk mendapatkan rekomendasi makanan berdasarkan profil Anda
-   - `!chat` untuk mengobrol dengan AI seputar nutrisi dan kesehatan
+1. Send message `!halo` to start
+2. Choose between:
+   - `!recomend` to get food recommendations based on your profile
+   - `!chat` to chat with AI about nutrition and health
 
-### Mode Rekomendasi
-Bot akan menanyakan beberapa pertanyaan untuk membangun profil nutrisi Anda:
+### Recommendation Mode
+The bot will ask several questions to build your nutrition profile:
 - Gender
-- Berat badan (kg)
-- Tinggi badan (cm)
-- Usia (tahun)
-- Tingkat aktivitas (1-5)
-- Tujuan (menurunkan berat badan, menambah massa otot, menjaga kesehatan)
+- Weight (kg)
+- Height (cm)
+- Age (years)
+- Activity level (1-5)
+- Goal (weight loss, muscle gain, health maintenance)
 
-### Mode Chat AI
-Tanyakan apa saja seputar nutrisi dan kesehatan. Bot akan otomatis keluar dari mode chat setelah 3 menit tidak aktif.
+### AI Chat Mode
+Ask anything about nutrition and health. The bot will automatically exit chat mode after 3 minutes of inactivity.
 
-## Prasyarat
+## Prerequisites
 
-- Node.js (versi 14 atau lebih tinggi)
+- Node.js (version 14 or higher)
 - NPM (Node Package Manager)
-- Akun WhatsApp
+- WhatsApp account
 
-## Instalasi
+## Installation
 
-1. Clone repository ini:
+1. Clone this repository:
    ```bash
    git clone https://github.com/PanPanFR/WABot-NutriAI.git
    cd WABot-NutriAI
    ```
 
-2. Instal dependensi:
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-3. Konfigurasi file `.env`:
-   Salin file `.env.example` ke `.env` dan isi dengan nilai yang sesuai:
+3. Configure `.env` file:
+   Copy `.env.example` to `.env` and fill in appropriate values:
    ```bash
    cp .env.example .env
    ```
    
-   Kemudian edit file `.env`:
+   Then edit the `.env` file:
    ```env
    # WhatsApp Web Configuration
    WWEB_VERSION=2.3000.1024710243-alpha
@@ -71,37 +71,37 @@ Tanyakan apa saja seputar nutrisi dan kesehatan. Bot akan otomatis keluar dari m
    INACTIVITY_TIMEOUT_MINUTES=3
    ```
 
-4. Jalankan bot:
+4. Run the bot:
    ```bash
    npm start
    ```
 
-5. Scan QR code yang muncul di terminal menggunakan WhatsApp Anda untuk login.
+5. Scan the QR code that appears in the terminal using your WhatsApp to login.
 
-## Perintah Bot
+## Bot Commands
 
-- `!halo` - Menampilkan menu utama
-- `!recomend` - Memulai proses rekomendasi makanan
-- `!chat` - Memulai mode chat AI
-- `!stop` - Keluar dari mode chat AI
+- `!halo` - Display main menu
+- `!recomend` - Start food recommendation process
+- `!chat` - Start AI chat mode
+- `!stop` - Exit AI chat mode
 
-## Teknologi yang Digunakan
+## Technologies Used
 
-- [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js) - Library untuk menghubungkan bot dengan WhatsApp Web
-- [OpenRouter](https://openrouter.ai/) - API untuk model AI
+- [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js) - Library to connect bot with WhatsApp Web
+- [OpenRouter](https://openrouter.ai/) - API for AI model
 - [Node.js](https://nodejs.org/) - Runtime environment
-- [Axios](https://axios-http.com/) - HTTP client untuk API requests
+- [Axios](https://axios-http.com/) - HTTP client for API requests
 
-## Kontribusi
+## Contributing
 
-Kontribusi sangat diterima! Silakan buat pull request atau buka issue untuk saran dan perbaikan.
+Contributions are very welcome! Please create a pull request or open an issue for suggestions and improvements.
 
-## Lisensi
+## License
 
-MIT License - lihat file [LICENSE](LICENSE) untuk detail lebih lanjut.
+MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Disclaimer
 
-Bot ini dibuat untuk tujuan edukasi dan bantuan nutrisi personal. Untuk saran medis profesional, selalu konsultasikan dengan dokter atau ahli gizi yang memenuhi syarat.
+This bot is created for educational purposes and personal nutrition assistance. For professional medical advice, always consult with a qualified doctor or nutritionist.
 
-Fitur rekomendasi makanan bergantung pada model Machine Learning eksternal yang tidak disertakan dalam repository ini. Pengguna perlu menyediakan API model ML mereka sendiri untuk mengaktifkan fitur ini.
+The food recommendation feature depends on an external Machine Learning model which is not included in this repository. Users need to provide their own ML model API to enable this feature.
